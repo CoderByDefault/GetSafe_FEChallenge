@@ -20,7 +20,7 @@ const NameStep: React.FC<NameStepProps> = (props) => {
             onChange={handleChange}
             required
             value={name}
-            pattern="/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u"
+            pattern="^[A-Za-zÄäÖÖÜüß]+(\s[A-Za-zÄäÖÖÜüß]+){0,2}$"
           ></input>
           <br />
           <button type="submit">Next</button>
