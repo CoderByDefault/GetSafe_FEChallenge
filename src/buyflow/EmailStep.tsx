@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 interface EmailStepProps {
-  cb: (field: string, value: string) => void
+  cb: (field: string, value: string) => void;
 }
 
 const EmailStep: React.FC<EmailStepProps> = (props) => {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState("");
   return (
     <>
       <div>
-        Email:{' '}
-        <input
-          type="email"
-          onChange={({ target: { value } }) => {
-            setEmail(value)
-          }}
-          value={email}
-        ></input>
+        <form onSubmit={() => props.cb("email", email)}>
+          <label>Email: </label>
+          <input
+            required
+            type="email"
+            onChange={({ target: { value } }) => {
+              setEmail(value);
+            }}
+            value={email}
+          ></input>
+          <br />
+          <button type="submit">Next</button>
+        </form>
       </div>
-      <button onClick={() => props.cb('email', email)}>Next</button>
     </>
-  )
-}
+  );
+};
 
-export default EmailStep
+export default EmailStep;
